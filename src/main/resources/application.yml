@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: onework-test
+  datasource:
+#    url: jdbc:h2:file:./data/testdb  # 使用文件儲存模式，資料庫文件儲存在當前目錄下的data資料夾中
+    url: jdbc:h2:mem:testdb  # 使用記憶體模式，資料庫不會持久化
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true  # 啟用H2的控制台
+      path: /h2-console  # H2控制台的路徑
+  jpa:
+    hibernate:
+      ddl-auto: update  # 自動更新資料庫結構
+    show-sql: true  # 顯示SQL語句
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+  sql:
+    init:
+      platform: h2
+      mode: never
+
+app:
+  aquark:
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+  info:
+    title: API 文件標題
+    description: 這是API文件的描述
+    version: v1.0
+logging:
+  level:
+    root: INFO
