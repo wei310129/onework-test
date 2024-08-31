@@ -26,9 +26,12 @@ spring:
     init:
       platform: h2
       mode: never
-
-app:
-  aquark:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      timeout: 6000
 
 springdoc:
   api-docs:
@@ -36,10 +39,9 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     operationsSorter: method
-  info:
-    title: API 文件標題
-    description: 這是API文件的描述
-    version: v1.0
+
 logging:
   level:
     root: INFO
+server:
+  port: 8080
